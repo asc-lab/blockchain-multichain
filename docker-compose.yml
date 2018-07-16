@@ -1,0 +1,103 @@
+version: '2'
+
+services:
+    multichain-master:
+        build: ./multichain-cluster/master
+        image: multichain-master
+        container_name: multichain-master
+        stdin_open: true
+        tty: true
+        expose:
+            - 7557
+            - 8002
+        ports:
+            - "8002:8002"
+        environment:
+            CHAINNAME: MyChain
+            NETWORK_PORT: 7557
+            RPC_PORT: 8002
+            RPC_USER: multichainrpc
+            RPC_PASSWORD: this-is-insecure-change-it
+            RPC_ALLOW_IP: 0.0.0.0/0.0.0.0
+            PARAM_TARGET_BLOCK_SIZE: target-block-time|30
+            PARAM_ANYONE_CAN_CONNECT: anyone-can-connect|true
+            PARAM_ANYONE_CAN_MINE: anyone-can-mine|true
+    multichain-slave:
+        build: ./multichain-cluster/node
+        image: multichain-slave
+        container_name: multichain-slave
+        stdin_open: true
+        tty: true
+        expose:
+            - 7557
+            - 8002
+        environment:
+            CHAINNAME: MyChain
+            NETWORK_PORT: 7557
+            RPC_PORT: 8002
+            RPC_USER: multichainrpc
+            RPC_PASSWORD: this-is-insecure-change-it
+            RPC_ALLOW_IP: 0.0.0.0/0.0.0.0
+            MASTER_NODE: multichain-master
+        links:
+            - multichain-master
+        depends_on:
+            - multichain-master
+    multichain-explorer:
+        build: ./multichain-cluster/explorer
+        image: multichain-explorer
+        container_name: multichain-explorer
+        stdin_open: true
+        tty: true
+        expose:
+            - 2750
+            - 7557
+            - 8002
+        ports:
+            - "2750:2750"
+        environment:
+            CHAINNAME: MyChain
+            NETWORK_PORT: 7557
+            RPC_PORT: 8002
+            RPC_USER: multichainrpc
+            RPC_PASSWORD: this-is-insecure-change-it
+            RPC_ALLOW_IP: 0.0.0.0/0.0.0.0
+            MASTER_NODE: multichain-master
+        links:
+            - multichain-master
+        depends_on:
+            - multichain-master
+    multichain-server:
+        build: ./multichain-server
+        image: multichain-server
+        container_name: multichain-server
+        stdin_open: true
+        tty: true
+        expose:
+            - 8080
+        ports:
+            - "8080:8080"
+        environment:
+            CHAINNAME: MyChain
+            RPC_PORT: 8002
+            RPC_USER: multichainrpc
+            RPC_PASSWORD: this-is-insecure-change-it
+            MASTER_NODE: multichain-master
+        links:
+            - multichain-master
+        depends_on:
+            - multichain-master
+    multichain-app:
+        build: ./multichain-app
+        image: multichain-app
+        container_name: multichain-app
+        stdin_open: true
+        tty: true
+        expose:
+            - 80
+        ports:
+            - "80:80"
+        links:
+            - multichain-server
+        depends_on:
+            - multichain-server
