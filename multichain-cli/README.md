@@ -12,10 +12,10 @@
 2.	Create admin user
 3.	Create regular users: user1, user2, user3
 4.	Create managers: manager1, manager2
-5.	User1 creates request1 for manager1
-6.	Manager1 accepts request1
-7.	User2 creates request2 for manager2
-8.	Manager2 rejects request2 (decision but with different outcome/value)
+5.	User1 creates request1
+6.	Manager1 accepts request1 (create decision for request)
+7.	User2 creates request2
+8.	Manager2 rejects request2 (decision with different outcome/value)
 
 ### Before start 
 Install **MultiChain** on your machine. For Linux instruction below:
