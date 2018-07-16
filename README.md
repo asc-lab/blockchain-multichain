@@ -37,14 +37,21 @@ Decision {managerId, Request, decisionResult, decisionTime}
 }
 ```
 
-# Architecture
+## Repo info
+
+* `multichain-app` - Angular 6 client application
+* `multichain-cli` - example test scenario and execute this by MultiChain CLI
+* `multichain-cluster` - blockchain infrastructure
+* `multichain-server` - Java & Spring Boot & MultiChain Java API
+
+## Architecture
 
 Our solution consists of 5 services:
 * `multichain-master` - multichain seed node
 * `multichain-slave` - multichain 2nd node
 * `multichain-explorer` - multichain 3rd node with UI for browsing blockchain
-* `multichain-poc-server` - application backend (SpringBoot)
-* `multichain-poc-app` - application frontend (Angular6 served by nginx)
+* `multichain-server` - application backend (SpringBoot)
+* `multichain-app` - application frontend (Angular6 served by nginx)
 
 ## Deployment & running
 
