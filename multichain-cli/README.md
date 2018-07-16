@@ -3,14 +3,14 @@
 ## Test scenario
 
 ### Actors
-* Admin user – can see everything, can create new users, can assign/remove permissions
-* Regular user – can add requests and receive decision results
-* Manager user – can create decisions for requests and view decisions
+* **Admin user** – can see everything, can create new users, can assign/remove permissions
+* **Regular user** – can add requests and view requests/decisions
+* **Manager user** – can create decisions for requests and view requests/decisions
 
 ### Steps
 1.	Create new ledger
 2.	Create admin user
-3.	Create regular users: user1, user2, user3
+3.	Create regular users: user1, user2
 4.	Create managers: manager1, manager2
 5.	User1 creates request1
 6.	Manager1 accepts request1 (create decision for request)
