@@ -7,7 +7,7 @@ Your organization wants to implement an internal system for submitting different
 Each request must be approved by the manager. \
 Requests should be indisputable and immutable. 
 
-Example request and decision structure:
+Example request and decision structure:npm au
 ```
 Request {userId, managerId, creationTime, requestContent}
 Decision {managerId, Request, decisionResult, decisionTime}
