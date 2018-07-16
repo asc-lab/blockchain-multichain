@@ -1,0 +1,14 @@
+.main-form {
+  width: 80%;
+  margin: 70px auto 0 !important;
+}
+
+@media screen and (max-width: 777px) {
+  .main-form {
+    width: 98%;
+  }
+}
+
+.checkbox-field {
+  margin-top: 30px !important;
+}

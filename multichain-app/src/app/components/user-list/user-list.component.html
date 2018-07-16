@@ -1,0 +1,55 @@
+<div class="ui card standard-list">
+  <div class="content">
+    <div class="header">Users</div>
+  </div>
+  <div class="content">
+    <div class="ui large form equal width stackable grid">
+
+      <div class="two column row">
+
+        <div class="column field">
+          <div class="ui container">
+            <p class="table-info">All users</p>
+            <table class="ui celled table">
+              <thead>
+              <tr>
+                <th>Username</th>
+                <th>Blockchain Address</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr *ngFor="let user of users$ | async">
+                <td>{{ user.username }}</td>
+                <td>{{ user.blockchainAddress }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="column field">
+          <div class="ui container">
+            <p class="table-info">All managers</p>
+            <table class="ui celled table">
+              <thead>
+              <tr>
+                <th>Username</th>
+                <th>Blockchain Address</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr *ngFor="let manager of managers$ | async">
+                <td>{{ manager.username }}</td>
+                <td>{{ manager.blockchainAddress }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-# Blockchain (private DLT) using MultiChain
+# Private Blockchain (private DLT) using MultiChain
 
 Application for proposals using blockchain with MultiChain.
 

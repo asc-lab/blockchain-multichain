@@ -1,0 +1,10 @@
+footer {
+  text-align: center;
+  border-top: 1px gray solid;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+footer > hr {
+  width: 90%;
+}

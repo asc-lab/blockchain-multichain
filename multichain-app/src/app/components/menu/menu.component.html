@@ -1,0 +1,38 @@
+<div *ngIf="isLogged()" class="ui fixed inverted menu main-nav desktop-item">
+  <a class="header item" href="/">
+    <h1>MultiChain PoC {{ actualVersion }}</h1>
+  </a>
+
+  <a class="header item" href="/myprofile">
+    User profile
+  </a>
+
+  <a class="header item" href="/users">
+    User list
+  </a>
+
+  <a class="header item" href="/requests/new">
+    Create new request
+  </a>
+
+  <a class="header item" href="/requests">
+    Request list
+  </a>
+
+  <a class="header item" href="/decisions">
+    Decision list
+  </a>
+
+  <a class="header item" href="/chainexplorer">
+    Chain explorer
+  </a>
+
+  <div class="right header item desktop-item">
+    <div class="ui animated button grey" (click)="logout()">
+      <div class="hidden content">Logout</div>
+      <div class="visible content">
+        <i class="icon sign out alternate"></i>
+      </div>
+    </div>
+  </div>
+</div>

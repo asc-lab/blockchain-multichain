@@ -1,0 +1,31 @@
+<div class="ui card standard-list">
+  <div class="content">
+    <div class="header">Decisions</div>
+  </div>
+  <div class="content">
+    <div class="ui container">
+      <table class="ui celled table">
+        <thead>
+        <tr>
+          <th>Manager</th>
+          <th>Result</th>
+          <th>Time</th>
+          <th>Request</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let decision of decisions$ | async">
+          <td>{{ decision.managerId }}</td>
+          <td>{{ decision.decisionResult }}</td>
+          <td>{{ decision.decisionTime }}</td>
+          <td>
+            <p><strong>User: </strong> {{ decision.request.userId }}</p>
+            <p><strong>Creation time: </strong>{{ decision.request.creationTime }}</p>
+            <p><strong>Content: </strong>{{ decision.request.requestContent }}</p>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

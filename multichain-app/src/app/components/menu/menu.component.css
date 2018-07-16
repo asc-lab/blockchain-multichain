@@ -1,0 +1,9 @@
+.main-nav {
+  background-color: #E63B43 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .main-nav {
+    display: none !important;
+  }
+}

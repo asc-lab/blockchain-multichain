@@ -1,0 +1,26 @@
+<sui-sidebar-container class="ui bottom attached segment">
+
+  <sui-sidebar class="inverted vertical mobile-menu" #sidebar>
+   <app-menu-mobile-items [sidebar]="sidebar"></app-menu-mobile-items>
+  </sui-sidebar>
+
+  <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+
+    <div *ngIf="isLogged()" class="ui top attached demo inverted menu mobile-menu mobile-item">
+      <a class="item" (click)="sidebar.toggle()">
+        <strong>Multichain PoC {{ actualVersion }}</strong><i class="sidebar icon mobile-menu-icon"></i> Menu
+      </a>
+    </div>
+
+    <app-menu [actualVersion]="actualVersion"></app-menu>
+
+    <div class="main-container">
+      <router-outlet></router-outlet>
+      <simple-notifications></simple-notifications>
+    </div>
+
+    <app-footer></app-footer>
+
+  </sui-sidebar-sibling>
+
+</sui-sidebar-container>

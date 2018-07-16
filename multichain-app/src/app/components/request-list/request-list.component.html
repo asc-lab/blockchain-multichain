@@ -1,0 +1,40 @@
+<div class="ui card standard-list">
+  <div class="content">
+    <div class="header">Requests</div>
+  </div>
+  <div class="content">
+    <div class="ui container">
+      <table *ngIf="requests && requests.length > 0" class="ui celled table">
+        <thead>
+        <tr>
+          <th>User</th>
+          <th>Manager</th>
+          <th>Content</th>
+          <th>Creation time</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{ request.userId }}</td>
+          <td>{{ request.managerId }}</td>
+          <td>{{ request.requestContent }}</td>
+          <td>{{ request.creationTime }}</td>
+          <td>
+            <div class="ui buttons">
+              <button class="ui negative button" (click)="decline(request)">Decline</button>
+              <div class="or"></div>
+              <button class="ui positive button" (click)="accept(request)">Accept</button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="!requests || requests.length === 0">
+      0 requests.
+    </div>
+  </div>
+</div>

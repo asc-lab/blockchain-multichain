@@ -1,0 +1,25 @@
+.main-container {
+  margin: 90px auto;
+  width: 90%;
+}
+
+.mobile-menu {
+  background-color: #E63B43 !important;
+}
+
+.mobile-menu-icon {
+  margin-left: 20px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    width: 100%;
+    margin: 30px auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .mobile-item {
+    display: none !important;
+  }
+}

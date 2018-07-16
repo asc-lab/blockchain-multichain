@@ -1,0 +1,91 @@
+<div class="ui card standard-list">
+  <div class="content">
+    <div class="header">Main info about chain</div>
+  </div>
+  <div class="content">
+    <div class="ui centered grid">
+      <!--<div class="row">-->
+        <!--<div class="ui horizontal segments">-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Status:</strong>{{ chain.status }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Name: </strong> {{ chain.name }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Blocks:</strong> {{chain.blocks }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Transactions:</strong> {{ chain.transactions }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Assets: </strong> {{ chain.assets }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Addresses:</strong> {{ chain.addresses }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Streams:</strong> {{ chain.streams }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Peers:</strong> {{ chain.peers }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Started:</strong> {{ chain.started }}</p>-->
+          <!--</div>-->
+          <!--<div class="ui segment">-->
+            <!--<p><strong>Age (in days):</strong> {{ chain.ageInDays }}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="row">
+        <h4>Latest Transactions</h4>
+      </div>
+
+      <div class="row">
+        <table class="ui very basic collapsing celled table">
+          <thead>
+          <tr>
+            <th>TransactionId (Txid)</th>
+            <th>Info</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let block of blocks">
+            <td>{{ block.txid }}</td>
+            <td>
+              <h4 class="ui image header">
+                <img src="../../../assets/multichain_logo32.png" class="ui mini rounded image">
+                <div class="content">
+                  Stream: {{ block.streamName }}
+                  <br/>
+                  {{ block.confirmation }} confirmations
+                  <br/>
+                  Publishers: {{ block.publishers }}
+                  <div class="sub header margin-10">{{ block.time }}</div>
+                </div>
+              </h4>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <h4>Main information</h4>
+      </div>
+
+      <div class="row">
+        <div class="ui segments">
+          <div class="ui segment" *ngFor="let info of chain.rawString | split:','">
+            {{ info }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

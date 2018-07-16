@@ -1,0 +1,78 @@
+<div class="ui card main-form">
+
+  <div class="content">
+    <div class="header">User profile</div>
+  </div>
+
+  <div class="content">
+    <div class="ui large form equal width stackable grid">
+
+      <div class="three column row">
+        <div class="column field">
+          <label for="username">Username</label>
+          <div class="ui disabled input">
+            <input type="text"
+                   id="username"
+                   name="username"
+                   [(ngModel)]="user.username"
+                   disabled
+            />
+          </div>
+        </div>
+
+        <div class="column field">
+          <label for="address">Blockchain address</label>
+          <div class="ui disabled input">
+            <input type="text"
+                   id="address"
+                   name="address"
+                   [(ngModel)]="user.blockchainAddress"
+                   disabled
+            />
+          </div>
+        </div>
+
+        <div class="column field">
+          <label for="pubkey">Blockchain pub key</label>
+          <div class="ui disabled input">
+            <input type="text"
+                   id="pubkey"
+                   name="pubkey"
+                   [(ngModel)]="user.blockchainPubKey"
+                   disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="ui divider"></div>
+
+      <div class="row">
+        <div class="column field">
+
+          <h2>My requests</h2>
+
+          <table class="ui celled table">
+            <thead>
+            <tr>
+              <th>Manager</th>
+              <th>Content</th>
+              <th>Creation time</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let request of requests$ | async">
+              <td>{{ request.managerId }}</td>
+              <td>{{ request.requestContent }}</td>
+              <td>{{ request.creationTime }}</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
