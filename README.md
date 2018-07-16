@@ -144,6 +144,14 @@ kubernetes-undeploy.sh
     <img alt="Initial users" src="https://raw.githubusercontent.com/asc-lab/blockchain-multichain/master/images/multichain_user_list.png" />
 </p>
 
+<p align="center">
+    <img alt="Request list" src="https://raw.githubusercontent.com/asc-lab/blockchain-multichain/master/images/multichain_request_list.png" />
+</p>
+
+<p align="center">
+    <img alt="Decision list" src="https://raw.githubusercontent.com/asc-lab/blockchain-multichain/master/images/multichain_decision_list.png" />
+</p>
+
 ## DOCS
 
 * [Getting started](https://www.multichain.com/getting-started/)
