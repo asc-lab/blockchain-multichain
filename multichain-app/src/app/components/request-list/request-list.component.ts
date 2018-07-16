@@ -1,8 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Petition} from "../../shared/model/Petition";
-import {RequestService} from "../../shared/services/request.service";
-import {BaseRefreshComponent} from "../BaseRefreshComponent";
-import {NotificationService} from "../../shared/notification.service";
+import {Petition} from '../../shared/model/Petition';
+import {RequestService} from '../../shared/services/request.service';
+import {BaseRefreshComponent} from '../BaseRefreshComponent';
+import {NotificationService} from '../../shared/notification.service';
 
 @Component({
   selector: 'app-request-list',

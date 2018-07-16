@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Decision} from "../../shared/model/Decision";
-import {DecisionService} from "../../shared/services/decision.service";
-import {Observable} from "rxjs/index";
+import {Decision} from '../../shared/model/Decision';
+import {DecisionService} from '../../shared/services/decision.service';
+import {Observable} from 'rxjs/index';
 
 @Component({
   selector: 'app-decision-list',

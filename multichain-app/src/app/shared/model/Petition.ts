@@ -5,9 +5,9 @@ export class Petition {
   requestContent: string;
 
   clear() {
-    this.userId = "";
-    this.managerId = "";
-    this.creationTime = "";
-    this.requestContent = "";
+    this.userId = '';
+    this.managerId = '';
+    this.creationTime = '';
+    this.requestContent = '';
   }
 }

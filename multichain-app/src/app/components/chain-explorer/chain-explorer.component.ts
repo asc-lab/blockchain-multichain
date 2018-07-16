@@ -1,9 +1,9 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Block} from "../../shared/model/Block";
-import {ChainExplorerService} from "../../shared/chain-explorer.service";
-import {Chain} from "../../shared/model/Chain";
-import {timer} from "rxjs/index";
-import {BaseRefreshComponent} from "../BaseRefreshComponent";
+import {Block} from '../../shared/model/Block';
+import {ChainExplorerService} from '../../shared/chain-explorer.service';
+import {Chain} from '../../shared/model/Chain';
+import {timer} from 'rxjs/index';
+import {BaseRefreshComponent} from '../BaseRefreshComponent';
 
 @Component({
   selector: 'app-chain-explorer',

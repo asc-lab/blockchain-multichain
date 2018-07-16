@@ -1,14 +1,14 @@
-import {NgModule} from "@angular/core";
+import {NgModule} from '@angular/core';
 
-import {RouterModule, Routes} from "@angular/router";
-import {RequestListComponent} from "./components/request-list/request-list.component";
-import {RequestNewComponent} from "./components/request-new/request-new.component";
-import {DecisionListComponent} from "./components/decision-list/decision-list.component";
-import {LoginComponent} from "./components/login/login.component";
-import {HomeComponent} from "./components/home/home.component";
-import {UserProfileComponent} from "./components/user-profile/user-profile.component";
-import {ChainExplorerComponent} from "./components/chain-explorer/chain-explorer.component";
-import {UserListComponent} from "./components/user-list/user-list.component";
+import {RouterModule, Routes} from '@angular/router';
+import {RequestListComponent} from './components/request-list/request-list.component';
+import {RequestNewComponent} from './components/request-new/request-new.component';
+import {DecisionListComponent} from './components/decision-list/decision-list.component';
+import {LoginComponent} from './components/login/login.component';
+import {HomeComponent} from './components/home/home.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
+import {ChainExplorerComponent} from './components/chain-explorer/chain-explorer.component';
+import {UserListComponent} from './components/user-list/user-list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},

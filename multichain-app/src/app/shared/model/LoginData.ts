@@ -4,6 +4,6 @@ export class LoginData {
   grant_type: string;
 
   constructor() {
-    this.grant_type = "password";
+    this.grant_type = 'password';
   }
 }

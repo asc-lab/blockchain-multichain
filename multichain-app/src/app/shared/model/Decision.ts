@@ -1,4 +1,4 @@
-import {Petition} from "./Petition";
+import {Petition} from './Petition';
 
 export declare type DecisionResult = 'ACCEPTED' | 'DECLINED';
 

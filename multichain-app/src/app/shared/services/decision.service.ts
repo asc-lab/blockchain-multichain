@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/index";
-import {Decision, DecisionResult} from "../model/Decision";
-import {ApiProvider} from "./api-provider.service";
-import {Petition} from "../model/Petition";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/index';
+import {Decision, DecisionResult} from '../model/Decision';
+import {ApiProvider} from './api-provider.service';
+import {Petition} from '../model/Petition';
 import * as moment from 'moment';
 
 @Injectable({
@@ -15,16 +15,16 @@ export class DecisionService {
   }
 
   getAll(): Observable<Decision[]> {
-    return this.http.get<Decision[]>(ApiProvider.getUrl("/decisions"));
+    return this.http.get<Decision[]>(ApiProvider.getUrl('/decisions'));
   }
 
   save(request: Petition, result: DecisionResult) {
-    let decision: Decision = new Decision();
+    const decision: Decision = new Decision();
     decision.decisionTime = moment().toISOString();
     decision.request = request;
     decision.decisionResult = result;
 
-    return this.http.post(ApiProvider.getUrl("/decisions"), decision);
+    return this.http.post(ApiProvider.getUrl('/decisions'), decision);
   }
 }
 

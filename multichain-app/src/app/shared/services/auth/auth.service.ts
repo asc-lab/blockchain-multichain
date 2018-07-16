@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Router} from "@angular/router";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {LoginData} from "../../model/LoginData";
-import {NotificationService} from "../../notification.service";
-import {CookieService} from "ngx-cookie-service";
-import {ApiProvider} from "../api-provider.service";
-import {AuthUser} from "../../model/AuthUser";
+import {Router} from '@angular/router';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {LoginData} from '../../model/LoginData';
+import {NotificationService} from '../../notification.service';
+import {CookieService} from 'ngx-cookie-service';
+import {ApiProvider} from '../api-provider.service';
+import {AuthUser} from '../../model/AuthUser';
 
 @Injectable()
 export class AuthService {
@@ -19,9 +19,6 @@ export class AuthService {
   }
 
   login(login: LoginData) {
-    console.log('Start login:');
-    console.log(login);
-
     return this.http.post(ApiProvider.getAuthUrl(), this.createBody(login))
       .subscribe(
         res => this.processSuccessLogin(res),
@@ -38,9 +35,7 @@ export class AuthService {
   }
 
   private processSuccessLogin(res) {
-    console.info(res);
-
-    let user = <AuthUser> {
+    const user = <AuthUser> {
       access_token: res['access_token'],
       token_type: res['token_type'],
       refresh_token: res['refresh_token'],
@@ -54,20 +49,19 @@ export class AuthService {
   }
 
   private processErrorLogin(err) {
-    console.log(err);
-
-    if (err.status === 404)
+    if (err.status === 404) {
       this.notifier.showErrorMessage('Server error.');
-    else if (err.status === 400 || err.status === 401 || err.status === 403)
+    } else if (err.status === 400 || err.status === 401 || err.status === 403) {
       this.notifier.showErrorMessage('Invalid login data.');
-    else
+    } else {
       this.notifier.showErrorMessage('Unexpected error!');
+    }
   }
 
   logout() {
     this.clearCookies();
     this.notifier.showSuccessMessage('Logout successfully!');
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 
   isLogged(): boolean {
@@ -80,9 +74,9 @@ export class AuthService {
   }
 
   private saveTokenInCookies(token): void {
-    if(this.isLogged())
+    if (this.isLogged()) {
       return;
-
-    this.cookie.set(AuthService.API_KEY, token, undefined, "");
+    }
+    this.cookie.set(AuthService.API_KEY, token, undefined, '');
   }
 }

@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from "../../shared/services/auth/auth.service";
-import {environment} from "../../../environments/environment";
+import {Component, Input} from '@angular/core';
+import {AuthService} from '../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,8 +8,8 @@ import {environment} from "../../../environments/environment";
 })
 export class MenuComponent {
 
-  @Input("actualVersion")
-  actualVersion: string = "";
+  @Input('actualVersion')
+  actualVersion = '';
 
   constructor(private authService: AuthService) {
   }

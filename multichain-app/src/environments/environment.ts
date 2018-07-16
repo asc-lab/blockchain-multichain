@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  app_url: "http://localhost:8080",
-  version: "1.0 DEV",
-  client_id: "client",
-  client_secret: "secret"
+  app_url: 'http://localhost:8080',
+  version: '1.0 DEV',
+  client_id: 'client',
+  client_secret: 'secret'
 };
 
 /*

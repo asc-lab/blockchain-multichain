@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "./shared/services/auth/auth.service";
-import {environment} from "../environments/environment";
+import {Router} from '@angular/router';
+import {AuthService} from './shared/services/auth/auth.service';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import {environment} from "../environments/environment";
 })
 export class AppComponent implements OnInit {
 
-  actualVersion: string = "";
+  actualVersion = '';
 
   constructor(private authService: AuthService,
               private router: Router) {

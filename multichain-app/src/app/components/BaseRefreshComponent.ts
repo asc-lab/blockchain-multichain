@@ -1,4 +1,4 @@
-import {ChangeDetectorRef} from "@angular/core";
+import {ChangeDetectorRef} from '@angular/core';
 
 export class BaseRefreshComponent {
 

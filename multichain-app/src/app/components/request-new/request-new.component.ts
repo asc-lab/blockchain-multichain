@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Petition} from "../../shared/model/Petition";
-import {RequestService} from "../../shared/services/request.service";
-import {NotificationService} from "../../shared/notification.service";
-import {UserService} from "../../shared/user.service";
-import {User} from "../../shared/model/User";
+import {Petition} from '../../shared/model/Petition';
+import {RequestService} from '../../shared/services/request.service';
+import {NotificationService} from '../../shared/notification.service';
+import {UserService} from '../../shared/user.service';
+import {User} from '../../shared/model/User';
 import * as moment from 'moment';
 
 @Component({
@@ -33,7 +33,7 @@ export class RequestNewComponent implements OnInit {
       console.log(res);
       this.notifier.showSuccessMessage('Petition save successfully!');
       this.petition.clear();
-    })
+    });
   }
 
 }

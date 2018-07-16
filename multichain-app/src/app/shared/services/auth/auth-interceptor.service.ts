@@ -9,10 +9,10 @@ import {
 } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-import {Observable} from "rxjs";
-import {tap} from "rxjs/operators";
-import {environment} from "../../../../environments/environment";
-import {AuthService} from "./auth.service";
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
+import {environment} from '../../../../environments/environment';
+import {AuthService} from './auth.service';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
@@ -22,14 +22,14 @@ export class AuthInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("Add headers to request.");
+    console.log('Add headers to request.');
 
-    let headers = new HttpHeaders().set("Authorization", "Basic " + btoa(environment.client_id + ":" + environment.client_secret));
+    let headers = new HttpHeaders().set('Authorization', 'Basic ' + btoa(environment.client_id + ':' + environment.client_secret));
 
     if (this.cookie.get(AuthService.API_KEY)) {
       headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get(AuthService.API_KEY));
     } else {
-      headers.set("Content-Type", "application/x-www-form-urlencoded");
+      headers.set('Content-Type', 'application/x-www-form-urlencoded');
     }
 
     req = req.clone({

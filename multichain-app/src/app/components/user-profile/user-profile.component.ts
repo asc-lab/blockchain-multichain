@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs/index";
-import {Petition} from "../../shared/model/Petition";
-import {RequestService} from "../../shared/services/request.service";
-import {UserService} from "../../shared/user.service";
-import {User} from "../../shared/model/User";
+import {Observable} from 'rxjs/index';
+import {Petition} from '../../shared/model/Petition';
+import {RequestService} from '../../shared/services/request.service';
+import {UserService} from '../../shared/user.service';
+import {User} from '../../shared/model/User';
 
 @Component({
   selector: 'app-user-profile',
