@@ -56,9 +56,7 @@ Our solution consists of 5 services:
 ## Deployment & running
 
 Each service is packaged as a separate container.
-To run whole system you can use:
-* `docker` + `docker-compose`
-* `kubernetes (minikube, Google Cloud or Azure)`
+To run whole system you can use `docker` + `docker-compose`.
 
 ### Docker Compose
 
