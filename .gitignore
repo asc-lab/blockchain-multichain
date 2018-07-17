@@ -36,3 +36,5 @@
 # Mac OSX Finder files.
 **/.DS_Store
 .DS_Store
+
+kubernetes**

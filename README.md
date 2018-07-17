@@ -76,61 +76,6 @@ To stop application just press:
 Ctrl+C
 ```
 
-### Kubernetes
-
-To deploy application on kubernetes you need a kubernetes cluster.
-It can be created easily using:
-* Minikube (locally)
-* Google Cloud
-* Azure
-
-#### Minikube
-
-1. Install [Minikube](https://github.com/kubernetes/minikube)
-2. Start the cluster:
-
-```
-minikube start
-```
-
-#### Google Cloud
-
-Prerequisites: GCP Account
-
-1. Install [GCP SDK/CLI](https://cloud.google.com/sdk/)
-2. Start the cluster:
-
-```
-kubernetes-cluster-create-gcp.sh
-```
-
-#### Azure
-
-Prerequisites: Azure Account
-
-1. Install [Azure SDK/CLI](https://docs.microsoft.com/pl-pl/cli/azure/install-azure-cli?view=azure-cli-latest)
-2. Start the cluster:
-
-```
-kubernetes-cluster-create-azure.sh
-```
-
-#### Deployment to kubernetes cluster
-
-Prerequisites: running kubernetes cluster
-
-To deploy application on kubernetes cluster you simple execute script:
-
-```
-kubernetes-deploy.sh
-```
-
-To undeploy application run command:
-
-```
-kubernetes-undeploy.sh
-```
-
 ## Screens
 <p align="center">
     <img alt="Desktop main version" src="https://raw.githubusercontent.com/asc-lab/blockchain-multichain/master/images/multichain_desktop_main.png" />
