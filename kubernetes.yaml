@@ -1,0 +1,227 @@
+#
+# Multichain master (seed) node
+#
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: multichain-master
+ labels:
+   app: multichain-poc
+   component: multichain-master
+spec:
+ containers:
+   - name: multichain-master
+     image: ADD PATH TO IMAGE multichain-master
+     ports:
+       - containerPort: 8002
+       - containerPort: 7557
+     env:
+       - name: CHAINNAME
+         value: MyChain
+       - name: NETWORK_PORT
+         value: "7557"
+       - name: RPC_PORT
+         value: "8002"
+       - name: RPC_USER
+         value: multichainrpc
+       - name: RPC_PASSWORD
+         value: this-is-insecure-change-it
+       - name: RPC_ALLOW_IP
+         value: 0.0.0.0/0.0.0.0
+       - name: PARAM_TARGET_BLOCK_SIZE
+         value: target-block-time|30
+       - name: PARAM_ANYONE_CAN_CONNECT
+         value: anyone-can-connect|true
+       - name: PARAM_ANYONE_CAN_MINE
+         value: anyone-can-mine|true
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: multichain-master
+  labels:
+   app: multichain-poc
+spec:
+  type: ClusterIP
+  selector:
+    component: multichain-master
+  ports:
+  - name: rpc
+    protocol: TCP
+    port: 8002
+    targetPort: 8002
+  - name: blockain
+    protocol: TCP
+    port: 7557
+    targetPort: 7557
+
+---
+
+#
+# Multichain slave node
+#
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: multichain-slave
+ labels:
+   app: multichain-poc
+   component: multichain-slave
+spec:
+ containers:
+   - name: multichain-slave
+     image: ADD PATH TO IMAGE multichain-slave
+     ports:
+       - containerPort: 8002
+       - containerPort: 7557
+     env:
+       - name: CHAINNAME
+         value: MyChain
+       - name: NETWORK_PORT
+         value: "7557"
+       - name: RPC_PORT
+         value: "8002"
+       - name: RPC_USER
+         value: multichainrpc
+       - name: RPC_PASSWORD
+         value: this-is-insecure-change-it
+       - name: RPC_ALLOW_IP
+         value: 0.0.0.0/0.0.0.0
+       - name: MASTER_NODE
+         value: multichain-master
+
+---
+
+#
+# Multichain explorer node
+#
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: multichain-explorer
+ labels:
+   app: multichain-poc
+   component: multichain-explorer
+spec:
+ containers:
+   - name: multichain-explorer
+     image: ADD PATH TO IMAGE multichain-explorer
+     ports:
+       - containerPort: 8002
+       - containerPort: 7557
+       - containerPort: 2750
+     env:
+       - name: CHAINNAME
+         value: MyChain
+       - name: NETWORK_PORT
+         value: "7557"
+       - name: RPC_PORT
+         value: "8002"
+       - name: RPC_USER
+         value: multichainrpc
+       - name: RPC_PASSWORD
+         value: this-is-insecure-change-it
+       - name: RPC_ALLOW_IP
+         value: 0.0.0.0/0.0.0.0
+       - name: MASTER_NODE
+         value: multichain-master
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: multichain-explorer
+  labels:
+    app: multichain-poc
+spec:
+  type: LoadBalancer
+  selector:
+    component: multichain-explorer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 2750
+
+---
+
+#
+# Multichain PoC Application Backend
+#
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: multichain-server
+ labels:
+   app: multichain-poc
+   component: multichain-server
+spec:
+ containers:
+   - name: multichain-server
+     image: ADD PATH TO IMAGE multichain-server
+     ports:
+       - containerPort: 8080
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: multichain-server
+  labels:
+    app: multichain-poc
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.10
+  selector:
+    component: multichain-server
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+
+---
+
+#
+# Multichain PoC Application Frontend
+#
+
+kind: Pod
+apiVersion: v1
+metadata:
+ name: multichain-app
+ labels:
+   app: multichain-poc
+   component: multichain-app
+spec:
+ containers:
+   - name: multichain-app
+     image: ADD PATH TO IMAGE multichain-app
+     ports:
+       - containerPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: multichain-app
+  labels:
+    app: multichain-poc
+spec:
+  type: LoadBalancer
+  selector:
+    component: multichain-app
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
