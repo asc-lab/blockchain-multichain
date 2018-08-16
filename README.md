@@ -1,6 +1,7 @@
 # Private Blockchain (private DLT) using MultiChain
 
 Application for proposals using blockchain with MultiChain. \
+\
 Check out our blog if you want to learn more:
 - [Java and Blockchain – how to combine these two in business application?](https://asc.altkom.pl/en/blog/java-and-blockchain/)
 
