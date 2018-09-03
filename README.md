@@ -5,6 +5,12 @@ Application for proposals using blockchain with MultiChain. \
 Check out our blog if you want to learn more:
 - [Java and Blockchain – how to combine these two in business application?](https://asc.altkom.pl/en/blog/java-and-blockchain/)
 
+## Architecture overview
+
+<p align="center">
+    <img alt="MultiChain PoC Architecture" src="https://asc.altkom.pl/wp-content/uploads/2018/07/Java-i-Blockchain-1.png" />
+</p>
+
 ## Repo info
 
 * `multichain-app` - Angular 6 client application
