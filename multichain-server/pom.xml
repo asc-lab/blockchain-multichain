@@ -77,7 +77,7 @@
         <dependency>
             <groupId>com.multichainjavaapi</groupId>
             <artifactId>MultiChainJavaAPI</artifactId>
-            <version>0.4.12-SNAPSHOT</version>
+            <version>0.4.17-SNAPSHOT</version>
         </dependency>
 
         <dependency>
