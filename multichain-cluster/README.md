@@ -1,5 +1,10 @@
 # Multichain cluster
 
+* **base**: base Ubuntu with the latest Multichain deamon installed
+* **master**: Based on the "base" image running a master node, creates a blockchain and runs it. *Important: only for development since any node can connect, anyone can administer and the RPC interface is open to all.*
+* **node**: Based on the same "base" image and connects to the master node
+* **explorer**: node with the Multichain explorer installed
+
 Based on [Docker images (master-multichain) GitHub](https://github.com/jmcewan/docker-multichain).
 
 ### Start the cluster
