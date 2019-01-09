@@ -24,8 +24,8 @@ Our solution consists of 5 services:
 * `multichain-master` - multichain seed node
 * `multichain-slave` - multichain 2nd node
 * `multichain-explorer` - multichain 3rd node with UI for browsing blockchain
-* `multichain-server` - application backend (SpringBoot)
-* `multichain-app` - application frontend (Angular6 served by nginx)
+* `multichain-server` - application backend (Spring Boot + in-memory database)
+* `multichain-app` - application frontend (Angular 6 served by nginx)
 
 ## Use case
 Your organization wants to implement an internal system for submitting different types of applications (for example: request for new equipment). \
@@ -63,6 +63,10 @@ Decision {managerId, Request, decisionResult, decisionTime}
 ```
 
 
+
+## Local development
+
+Remember that `MultiChainJavaAPI` (using to connect with `MultiChain`) is not available in Maven Central Repository so you must build this library locally based on installation instruction in [README](https://github.com/SimplyUb/MultiChainJavaAPI/blob/master/README.md#installation).
 
 ## Deployment & running
 
